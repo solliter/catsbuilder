@@ -82,9 +82,7 @@ DATABASES = {
     'NAME': 'db_cat',
     'USER': 'solliter',
     'PASSWORD': '12345',
-    'HOST': 'mysql://cdyhnca86anfctgc:k4ef8hltq1hoq973@zwgaqwfn759tj79r.'
-            'chr7pe7iynqr.eu-west-1.rds.amazonaws.com:3306/t84u9fap5n2d5ou8',   # Or an IP Address that your DB is hosted on
-    'PORT': '3306',
+
 
 }
 }
