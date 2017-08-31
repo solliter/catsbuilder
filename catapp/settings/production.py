@@ -25,7 +25,7 @@ SECRET_KEY = ')^%ts6e6tmvaxc7^bv(t5ymhsh-9psqbchjej$*16ab8$+3fpa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS =  ['catsbuilder.herokuapp.com']
+ALLOWED_HOSTS =  ['catsbuilder.herokuapp.com', '127.0.0.1']
 
 
 

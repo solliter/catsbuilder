@@ -23,7 +23,9 @@
 
 {% for obj in object_list %}
         Name: <h3><a href="{% url 'cat_edit' pk=obj.pk %}">{{ obj.name }}</a></h3></br>
-        Number of paws: {{ obj.paw }}</br> Name:  Age:{{ age.category }}</br> Species:{{ obj.species }}</br> Hairiness:{{ obj.hairiness }}</br></li>
+        Number of paws: {{ obj.paw }}</br>  Age:{{ obj.age }}</br> Species:{{ obj.species }}</br> Hairiness:{{ obj.hairiness }}</br></li>
+
+
 {% endfor %}
 </ul>
       {% block content %}
