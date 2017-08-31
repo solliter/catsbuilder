@@ -23,12 +23,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 SECRET_KEY = ')^%ts6e6tmvaxc7^bv(t5ymhsh-9psqbchjej$*16ab8$+3fpa'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS =  ['project-name.herokuapp.com', '.yourdomain.com']
 
 
-# Application definition
+
+
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -135,3 +137,5 @@ CSRF_COOKIE_SECURE              = True
 SECURE_HSTS_INCLUDE_SUBDOMAINS  = True
 SECURE_HSTS_SECONDS             = 1000000
 SECURE_FRAME_DENY               = True
+
+
