@@ -1,40 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
-<title>BuildCats.com</title>
+<nav class="navbar navbar-dark bg-dark">
+      <a class="navbar-brand" href="/">BuildCats.com</a>
+    </nav>
 {% include 'snippets/css.html' %}
- <div class="row">
-     <div class="col-sm-6 text-center col-sm-offset-3">
-         <h1>BuildCats.com</h1>
-     </div>
-     </div>
-
   </head>
   <body>
-
+    <ul>
+<p><h4><a class="btn btn-lg btn-primary" href="{% url 'new_cat'  %}" role="button">Build new cat</a></h4></br></p>
 <div class="row">
      <div class="col-sm-6 text-center col-sm-offset-3">
-
-
- <h4> Here you can build your cats </h4>
-    <ul>
-<h4><a href="{% url 'new_cat'  %}">Make new cat</a></br></h4>
-
+<div class="row">
 {% for obj in object_list %}
-        Name: <h3><a href="{% url 'cat_edit' pk=obj.pk %}">{{ obj.name }}</a></h3></br>
-        Number of paws: {{ obj.paw }}</br>  Age:{{ obj.age }}</br> Species:{{ obj.species }}</br> Hairiness:{{ obj.hairiness }}</br></li>
+<div class="col-lg-4 ">
+          <h3>Name: {{ obj.name }}</h3></br>
 
+    <p> <dt>Numbers of paw:</dt> <dd>{{ obj.paw }}</dd>
+             <dt> Age:</dt><dd>{{ obj.age }}</dd>
+             <dt> Species:</dt><dd>{{ obj.species }}</dd>
+             <dt> Hairiness:</dt><dd>{{ obj.hairiness }}</dd></p>
+          <p><a class="btn btn-primary" href="{% url 'cat_edit' pk=obj.pk %}" role="button">Change the cat</a></p>
+        </div>
 
 {% endfor %}
+    </div>
 </ul>
       {% block content %}
         {% endblock %}
-
     </div>
 </div>
   </div>
-
 </body>
 {% include 'snippets/js.html' %}
 </html>

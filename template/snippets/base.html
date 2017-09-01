@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+<title>BuildCats.com</title>
+{% include 'snippets/css.html' %}
+ <div class="row">
+     <div class="col-sm-6 text-center col-sm-offset-3">
+         <h1>BuildCats.com</h1>
+     </div>
+     </div>
+
+  </head>
+  <body>
+
+<div class="row">
+     <div class="col-sm-6 text-center col-sm-offset-3">
+
+
+ <h4> Here you can build your cats </h4>
+    <ul>
+<h4><a href="{% url 'new_cat'  %}">Make new cat</a></br></h4>
+
+{% for obj in object_list %}
+        
+        Name: <h3><a href="{% url 'cat_edit' pk=obj.pk %}">{{ obj.name }}</a></h3></br>
+        Number of paws: {{ obj.paw }}</br> Name:  Age:{{ age.category }}</br> Species:{{ obj.species }}</br> Hairiness:{{ obj.hairiness }}</br></li>
+{% endfor %}
+</ul>
+      {% block content %}
+        {% endblock %}
+
+    </div>
+</div>
+  </div>
+
+</body>
+{% include 'snippets/js.html' %}
+</html>

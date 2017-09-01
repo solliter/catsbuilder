@@ -8,10 +8,10 @@ class Cat(models.Model):
         db_table = "cat"
 
     paw = models.IntegerField(default=4)
-    name = models.CharField(max_length=30, null=False, blank=True)
+    name = models.CharField(max_length=30, null=False, default='Cat')
     age = models.IntegerField(default=False, null=False)
     species = models.CharField(max_length=50, blank=True)
-    hairiness = models.IntegerField(default=False, null=False, help_text='100 its max')
+    hairiness = models.IntegerField(default=False, null=False)
 
     def __str__(self):
         return self.name
