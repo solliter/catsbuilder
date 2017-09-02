@@ -13,14 +13,25 @@
      <div class="col-sm-6 text-center col-sm-offset-3">
 <div class="row">
 {% for obj in object_list %}
-<div class="col-lg-4 ">
-          <h3>Name: {{ obj.name }}</h3></br>
 
+<div class="col-lg-4 ">
+   <div style="border:2px solid #007bff;padding: 8px">
+          <h3>Name: {{ obj.name }}</h3></br>
+ <a class="btn btn-primary" href="{% url 'cat_edit' pk=obj.pk %}" role="button">Change the cat</a>
     <p> <dt>Numbers of paw:</dt> <dd>{{ obj.paw }}</dd>
              <dt> Age:</dt><dd>{{ obj.age }}</dd>
              <dt> Species:</dt><dd>{{ obj.species }}</dd>
              <dt> Hairiness:</dt><dd>{{ obj.hairiness }}</dd></p>
-          <p><a class="btn btn-primary" href="{% url 'cat_edit' pk=obj.pk %}" role="button">Change the cat</a></p>
+
+
+
+    <form action="{% url 'cat_delete' pk=obj.pk %}" method="post">
+    {% csrf_token %}
+        <p><input class="btn btn-primary" type="submit" role="button" value="Delete the cat"></p>
+
+</form>
+       </div>
+     </br>
         </div>
 
 {% endfor %}

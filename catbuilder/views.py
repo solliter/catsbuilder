@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404
 from .models import Cat
 from .forms import CatForm
 from django.shortcuts import redirect
-# Create your views here.
+
 
 def home(request):
     template = "base.html"
@@ -37,3 +37,12 @@ def cat_edit(request, pk):
         form = CatForm(instance=cat)
     return render(request, 'new_cat.html', {'form': form})
 
+
+def cat_delete(request, pk):
+    cat = get_object_or_404(Cat, pk=pk)  # Get your current cat
+
+    if request.method == 'POST':         # If method is POST,
+        cat.delete()                     # delete the cat.
+        return redirect('/')             # Finally, redirect to the homepage.
+
+    return render(request, 'base.html', {'cat': cat})
