@@ -25,7 +25,7 @@ SECRET_KEY = ')^%ts6e6tmvaxc7^bv(t5ymhsh-9psqbchjej$*16ab8$+3fpa'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS =  ['catsbuilder.herokuapp.com', '127.0.0.1']
+ALLOWED_HOSTS = ['catsbuilder.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'catbuilder',
+
 ]
 
 MIDDLEWARE = [
@@ -48,6 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'catapp.urls'

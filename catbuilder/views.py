@@ -2,6 +2,10 @@ from django.shortcuts import render, get_object_or_404
 from .models import Cat
 from .forms import CatForm
 from django.shortcuts import redirect
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+
 
 
 def home(request):
@@ -39,10 +43,13 @@ def cat_edit(request, pk):
 
 
 def cat_delete(request, pk):
-    cat = get_object_or_404(Cat, pk=pk)  # Get your current cat
+    cat = get_object_or_404(Cat, pk=pk)
 
     if request.method == 'POST':         # If method is POST,
         cat.delete()                     # delete the cat.
         return redirect('/')             # Finally, redirect to the homepage.
 
     return render(request, 'base.html', {'cat': cat})
+
+
+

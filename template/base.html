@@ -14,7 +14,7 @@
 <div class="row">
 {% for obj in object_list %}
 
-<div class="col-lg-4 ">
+<div class="col-sm-4 ">
    <div style="border:2px solid #007bff;padding: 8px">
           <h3>Name: {{ obj.name }}</h3></br>
  <a class="btn btn-primary" href="{% url 'cat_edit' pk=obj.pk %}" role="button">Change the cat</a>
