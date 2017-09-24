@@ -21,6 +21,7 @@ class Cat(models.Model):
     user = models.ForeignKey('auth.User')
     date = models.DateTimeField(default=timezone.now)
     image = models.ImageField(upload_to=upload_location, null=True, blank=True,)
+    text = models.CharField(max_length=500, default=False, blank=True)
 
     def __str__(self):
         return self.name

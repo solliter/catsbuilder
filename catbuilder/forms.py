@@ -7,9 +7,10 @@ class CatForm(forms.ModelForm):
         fields = [
             'paw',
             'name',
-            'image',
+            # 'image',
             'age',
             'species',
             'hairiness',
+            'text',
         ]
 
