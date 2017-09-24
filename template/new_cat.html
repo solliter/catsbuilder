@@ -6,16 +6,20 @@
 
 
 
- <div class="container">
-<div class="row">
-<div class="col-sm-3 col-md-offset-3">
-<div style="border:2px solid #007bff;padding: 8px">
+           <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+     <div class="col-6 col-lg-4" >
+
+   <div style="border:2px solid #79443b;padding: 8px">
 <h3> Cat</h3>
 
  <div class="col-sm-4">
         <form method="POST" class="post-form" >{% csrf_token %}
+            author:<h4>{{ request.user }}</h4>
             {{ form.as_p }}
-            <button class="btn btn-primary" type="submit" class="save btn btn-default">Save</button>
+            <button class="btn btn-primary" style ="background-color:#79443b" type="submit" class="save btn btn-default">Save</button>
         </form>
  </div>
 </div>

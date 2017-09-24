@@ -1,47 +1,107 @@
 <!DOCTYPE html>
+ {% load staticfiles %}
 <html lang="en">
   <head>
-<nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand" href="/">BuildCats.com</a>
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../../../favicon.ico">
+      <!--fonts-->
+<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900' rel='stylesheet' type='text/css'>
+<!--//fonts-->
+
+      <nav class="navbar navbar-expand-md fixed-top navbar-dark" style ="background-color:#79443b">
+
+      <a class="navbar-brand" href="/">CatBuilder</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="#">Link</a>-->
+          <!--</li>-->
+              {% if request.user.is_authenticated %}
+          <li class="nav-item active">
+            <a class="nav-link " href="{% url 'new_cat'  %}"> Build new cat</a>
+               {% endif %}
+          </li>
+          <li class="nav-item dropdown active">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Login</a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+                {% if not request.user.is_authenticated %}
+              <a class="dropdown-item" href="{% url 'account_login' %}">Login</a>
+              <a class="dropdown-item" href="{% url 'account_signup' %}">Sign in</a>
+                {% else %}
+              <a class="dropdown-item" href="{% url 'account_logout' %}">Exit</a>
+                 {% endif %}
+            </div>
+          </li>
+        </ul>
+      </div>
     </nav>
+
+
 {% include 'snippets/css.html' %}
   </head>
   <body>
     <ul>
-<p><h4><a class="btn btn-lg btn-primary" href="{% url 'new_cat'  %}" role="button">Build new cat</a></h4></br></p>
-<div class="row">
-     <div class="col-sm-6 text-center col-sm-offset-3">
-<div class="row">
-{% for obj in object_list %}
 
-<div class="col-sm-4 ">
-   <div style="border:2px solid #007bff;padding: 8px">
+           <div class="container">
+
+      <div class="row row-offcanvas row-offcanvas-right">
+
+        <div class="col-12 col-md-9">
+          <p class="float-right d-md-none">
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+
+          <div class="jumbotron" style ="background-color: #d6b2ab;">
+            <h1>Hello!</h1>
+            <p>To use all of site functions, please login or signin  </p>
+          </div>
+
+<div class="row">
+            {% for obj in object_list %}
+            <div class="col-6 col-lg-4">
+   <div style="border:2px solid #79443b;padding: 8px">
+
           <h3>Name: {{ obj.name }}</h3></br>
- <a class="btn btn-primary" href="{% url 'cat_edit' pk=obj.pk %}" role="button">Change the cat</a>
     <p> <dt>Numbers of paw:</dt> <dd>{{ obj.paw }}</dd>
              <dt> Age:</dt><dd>{{ obj.age }}</dd>
              <dt> Species:</dt><dd>{{ obj.species }}</dd>
              <dt> Hairiness:</dt><dd>{{ obj.hairiness }}</dd></p>
-
-
-
-    <form action="{% url 'cat_delete' pk=obj.pk %}" method="post">
-    {% csrf_token %}
-        <p><input class="btn btn-primary" type="submit" role="button" value="Delete the cat"></p>
-
-</form>
+<a class="btn btn-primary" style ="background-color:#79443b" href="{% url 'cat_detail' pk=obj.pk %}"  role="button" >Detail the cat</a>
        </div>
      </br>
         </div>
-
 {% endfor %}
-    </div>
-</ul>
+            </div><!--/span-->
+          </div><!--/row-->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <hr>
+
+
+    </div><!--/.container-->
+
+    </ul>
+
       {% block content %}
         {% endblock %}
     </div>
 </div>
   </div>
 </body>
+
 {% include 'snippets/js.html' %}
+
+
 </html>
