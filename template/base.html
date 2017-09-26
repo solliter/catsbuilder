@@ -2,6 +2,8 @@
  {% load staticfiles %}
 <html lang="en">
   <head>
+      <title>Cat's Builder</title>
+
  <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -51,6 +53,7 @@
 {% include 'snippets/css.html' %}
   </head>
   <body>
+
     <ul>
 
            <div class="container">
@@ -64,7 +67,7 @@
 
           <div class="jumbotron" style ="background-color: #d6b2ab;">
             <h1>Hello!</h1>
-            <p>To use all of site functions, please login or signin  </p>
+              <p><h3>To use all of site functions, please login or signin </h3></p>
           </div>
 
 <div class="row">
@@ -73,7 +76,9 @@
    <div style="border:2px solid #79443b;padding: 8px">
 
           <h3>Name: {{ obj.name }}</h3></br>
-    <p> <dt>Numbers of paw:</dt> <dd>{{ obj.paw }}</dd>
+          author:<h4>{{ obj.user }}</h4>
+    <p><dt>Date:</dt> <dd>{{ obj.date }}</dd>
+        <dt>Numbers of paw:</dt> <dd>{{ obj.paw }}</dd>
              <dt> Age:</dt><dd>{{ obj.age }}</dd>
              <dt> Species:</dt><dd>{{ obj.species }}</dd>
              <dt> Hairiness:</dt><dd>{{ obj.hairiness }}</dd></p>

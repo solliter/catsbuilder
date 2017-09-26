@@ -4,24 +4,18 @@
 
            <div class="container">
 
-
-
-     <div class="col-6 col-lg-4" >
-   <div style="border:2px solid #79443b;padding: 8px">
-        <!--<div class="blog">-->
-            <!--{% if Cat.date %}-->
-                <!--<div class="date">-->
-                    <!--{{ Cat.date }}-->
-                    <!---->
-            <!--{% endif %}-->
-        <div class="col-6 col-lg-4">
+        <div class="col-6">
+             <div style="border:2px solid #79443b;padding: 8px">
  <div class="cat">
         <h3>Name: {{ cat.name }}</h3></br>
       author:<h4>{{ cat.user }}</h4>
-    <p> <dt>Numbers of paw:</dt> <dd>{{ cat.paw }}</dd>
+
+    <p> <dt>Date:</dt> <dd>{{ cat.date }}</dd>
+        <dt>Numbers of paw:</dt> <dd>{{ cat.paw }}</dd>
              <dt> Age:</dt><dd>{{ cat.age }}</dd>
              <dt> Species:</dt><dd>{{ cat.species }}</dd>
              <dt> Hairiness:</dt><dd>{{ cat.hairiness }}</dd></p>
+              <dt> Text:</dt><dd>{{ cat.text }}</dd>
 
                    {% if cat.user == request.user%}
     <form action="{% url 'cat_delete' pk=cat.pk %}" method="post">
